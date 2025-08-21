@@ -1,0 +1,27 @@
+name: uruappan
+description: UruAPPan - app ciudadana para Uruapan
+publish_to: 'none'
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^4.0.0
+  firebase_auth: ^6.0.1
+  cloud_firestore: ^6.0.0
+  firebase_storage: ^13.0.0
+  google_maps_flutter: ^2.4.0
+  provider: ^6.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - WhatsApp Image 2025-08-21 at 01.35.45.jpeg
+
+

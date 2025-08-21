@@ -1,0 +1,22 @@
+name: uruappan
+description: UruAPPan - app ciudadana para Uruapan
+publish_to: 'none'
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.10.0
+  firebase_auth: ^4.6.0
+  cloud_firestore: ^4.7.0
+  firebase_storage: ^11.0.0
+  google_maps_flutter: ^2.4.0
+  provider: ^6.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
