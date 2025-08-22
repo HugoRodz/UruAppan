@@ -117,18 +117,19 @@ class BasuraScreen extends StatelessWidget {
                     width: 160,
                     margin: const EdgeInsets.only(right: 12),
                     child: Card(
-                      color: tipo.color.withOpacity(0.1),
+                      color: tipo.color.withAlpha((0.1 * 255).round()),
                       child: Padding(
                         padding: const EdgeInsets.all(12),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(tipo.icono, size: 32, color: tipo.color),
                             const SizedBox(height: 8),
-                            Text(tipo.tipo, style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text('Contenedor ${tipo.contenedor}', style: TextStyle(fontSize: 12)),
+                            Text(tipo.tipo, style: TextStyle(fontWeight: FontWeight.bold), maxLines: 1, overflow: TextOverflow.ellipsis),
+                            Text('Contenedor ${tipo.contenedor}', style: TextStyle(fontSize: 12), maxLines: 1, overflow: TextOverflow.ellipsis),
                             const SizedBox(height: 4),
-                            Text(tipo.descripcion, style: TextStyle(fontSize: 10), textAlign: TextAlign.center, maxLines: 2),
+                            Text(tipo.descripcion, style: TextStyle(fontSize: 10), textAlign: TextAlign.center, maxLines: 2, overflow: TextOverflow.ellipsis),
                           ],
                         ),
                       ),
@@ -179,7 +180,7 @@ class BasuraScreen extends StatelessWidget {
                               runSpacing: 4,
                               children: sector.colonias.map((colonia) => Chip(
                                 label: Text(colonia, style: TextStyle(fontSize: 12)),
-                                backgroundColor: sector.color.withOpacity(0.1),
+                                backgroundColor: sector.color.withAlpha((0.1 * 255).round()),
                               )).toList(),
                             ),
                           ],

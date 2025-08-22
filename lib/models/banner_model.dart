@@ -4,6 +4,8 @@ class BannerModel {
   String imageUrl;
   String targetUrl;
   bool premium;
+  String planId;
+  String planName;
 
   BannerModel({
     this.id = '',
@@ -11,6 +13,8 @@ class BannerModel {
     this.imageUrl = '',
     this.targetUrl = '',
     this.premium = false,
+  this.planId = '',
+  this.planName = '',
   });
 
   Map<String, dynamic> toMap() => {
@@ -18,6 +22,8 @@ class BannerModel {
         'imageUrl': imageUrl,
         'targetUrl': targetUrl,
         'premium': premium,
+    'planId': planId,
+    'planName': planName,
       };
 
   factory BannerModel.fromMap(String id, Map<String, dynamic> map) {
@@ -27,6 +33,8 @@ class BannerModel {
       imageUrl: map['imageUrl'] ?? '',
       targetUrl: map['targetUrl'] ?? '',
       premium: map['premium'] ?? false,
+  planId: map['planId'] ?? '',
+  planName: map['planName'] ?? '',
     );
   }
 }

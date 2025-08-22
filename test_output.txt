@@ -1,0 +1,475 @@
+00:00 +0: loading /Users/Gsrod/Documents/UruAppan/test/widget_test.dart
+lib/screens/tramites_screen.dart:169:16: Error: Can't find '}' to match '{'.
+class _Tramite {
+               ^
+lib/screens/tramites_screen.dart:166:1: Error: Directives must appear before any declarations.
+Try moving the directive before any declarations.
+import 'package:flutter/material.dart';
+^^^^^^
+lib/screens/tramites_screen.dart:167:1: Error: Directives must appear before any declarations.
+Try moving the directive before any declarations.
+import '../widgets/app_scaffold.dart';
+^^^^^^
+lib/screens/tramites_screen.dart:177:3: Error: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+Try adding the name of the type of the variable or the keyword 'var'.
+  import 'package:flutter/material.dart';
+  ^^^^^^
+lib/screens/tramites_screen.dart:177:3: Error: Expected ';' after this.
+  import 'package:flutter/material.dart';
+  ^^^^^^
+lib/screens/tramites_screen.dart:177:10: Error: Expected a class member, but got ''package:flutter/material.dart''.
+  import 'package:flutter/material.dart';
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/screens/tramites_screen.dart:177:41: Error: Expected a class member, but got ';'.
+  import 'package:flutter/material.dart';
+                                        ^
+lib/screens/tramites_screen.dart:178:3: Error: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+Try adding the name of the type of the variable or the keyword 'var'.
+  import '../widgets/app_scaffold.dart';
+  ^^^^^^
+lib/screens/tramites_screen.dart:178:3: Error: Expected ';' after this.
+  import '../widgets/app_scaffold.dart';
+  ^^^^^^
+lib/screens/tramites_screen.dart:178:10: Error: Expected a class member, but got ''../widgets/app_scaffold.dart''.
+  import '../widgets/app_scaffold.dart';
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/screens/tramites_screen.dart:178:40: Error: Expected a class member, but got ';'.
+  import '../widgets/app_scaffold.dart';
+                                       ^
+lib/screens/tramites_screen.dart:180:3: Error: Classes can't be declared inside other classes.
+Try moving the class to the top-level.
+  class _Tramite {
+  ^^^^^
+lib/screens/tramites_screen.dart:198:3: Error: Only static fields can be declared as const.
+Try using 'final' instead of 'const', or adding the keyword 'static'.
+  const List<_Tramite> _kTramites = [
+  ^^^^^
+lib/screens/tramites_screen.dart:233:3: Error: Classes can't be declared inside other classes.
+Try moving the class to the top-level.
+  class TramitesScreen extends StatelessWidget {
+  ^^^^^
+lib/screens/tramites_screen.dart:233:24: Error: Expected a class member, but got 'extends'.
+  class TramitesScreen extends StatelessWidget {
+                       ^^^^^^^
+lib/screens/tramites_screen.dart:233:32: Error: A method declaration needs an explicit list of parameters.
+Try adding a parameter list to the method declaration.
+  class TramitesScreen extends StatelessWidget {
+                               ^^^^^^^^^^^^^^^
+lib/screens/tramites_screen.dart:383:54: Error: Non-optional parameters can't have a default value.
+Try removing the default value or making the parameter optional.
+                                const SizedBox(height: 8),
+                                                     ^
+lib/screens/tramites_screen.dart:383:58: Error: Expected '{' before this.
+                                const SizedBox(height: 8),
+                                                         ^
+lib/screens/tramites_screen.dart:383:33: Error: Getters, setters and methods can't be declared to be 'const'.
+Try removing the 'const' keyword.
+                                const SizedBox(height: 8),
+                                ^^^^^
+lib/screens/tramites_screen.dart:383:58: Error: Expected a class member, but got ','.
+                                const SizedBox(height: 8),
+                                                         ^
+lib/screens/tramites_screen.dart:169:7: Error: '_Tramite' is already declared in this scope.
+class _Tramite {
+      ^^^^^^^^
+lib/screens/tramites_screen.dart:4:7: Context: Previous declaration of '_Tramite'.
+class _Tramite {
+      ^^^^^^^^
+lib/screens/tramites_screen.dart:178:3: Error: 'import' is already declared in this scope.
+  import '../widgets/app_scaffold.dart';
+  ^^^^^^
+lib/screens/tramites_screen.dart:177:3: Context: Previous declaration of 'import'.
+  import 'package:flutter/material.dart';
+  ^^^^^^
+lib/screens/tramites_screen.dart:22:12: Error: '_Tramite' isn't a type.
+const List<_Tramite> _kTramites = [
+           ^^^^^^^^
+lib/screens/tramites_screen.dart:22:12: Context: This isn't a type.
+const List<_Tramite> _kTramites = [
+           ^^^^^^^^
+lib/screens/tramites_screen.dart:198:14: Error: '_Tramite' isn't a type.
+  const List<_Tramite> _kTramites = [
+             ^^^^^^^^
+lib/screens/tramites_screen.dart:198:14: Context: This isn't a type.
+  const List<_Tramite> _kTramites = [
+             ^^^^^^^^
+lib/screens/tramites_screen.dart:98:41: Error: The getter 'icono' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'icono'.
+                    child: Icon(tramite.icono, color: colorPrimary),
+                                        ^^^^^
+lib/screens/tramites_screen.dart:100:39: Error: The getter 'titulo' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'titulo'.
+                  title: Text(tramite.titulo, style: const TextStyle(fontWeight: FontWeight.bold)),
+                                      ^^^^^^
+lib/screens/tramites_screen.dart:101:42: Error: The getter 'descripcion' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'descripcion'.
+                  subtitle: Text(tramite.descripcion),
+                                         ^^^^^^^^^^^
+lib/screens/tramites_screen.dart:115:50: Error: The getter 'duracion' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'duracion'.
+                                    Text(tramite.duracion, style: const TextStyle(fontWeight: FontWeight.w500)),
+                                                 ^^^^^^^^
+lib/screens/tramites_screen.dart:124:50: Error: The getter 'costo' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'costo'.
+                                    Text(tramite.costo, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green.shade700, fontSize: 16)),
+                                                 ^^^^^
+lib/screens/tramites_screen.dart:133:38: Error: The getter 'requisitos' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'requisitos'.
+                          ...tramite.requisitos.map((requisito) => Padding(
+                                     ^^^^^^^^^^
+lib/screens/tramites_screen.dart:234:35: Error: Expected ':' before this.
+    const TramitesScreen({Key? key}) : super(key: key);
+                                  ^
+lib/screens/tramites_screen.dart:234:32: Error: Not a constant expression.
+    const TramitesScreen({Key? key}) : super(key: key);
+                               ^^^
+lib/screens/tramites_screen.dart:234:35: Error: Expected an identifier, but got '}'.
+Try inserting an identifier before '}'.
+    const TramitesScreen({Key? key}) : super(key: key);
+                                  ^
+lib/screens/tramites_screen.dart:234:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+    const TramitesScreen({Key? key}) : super(key: key);
+                        ^
+lib/screens/tramites_screen.dart:58:9: Context: Found this candidate, but the arguments don't match.
+  const TramitesScreen({Key? key}) : super(key: key);
+        ^^^^^^^^^^^^^^
+lib/screens/tramites_screen.dart:234:36: Error: Expected ';' after this.
+    const TramitesScreen({Key? key}) : super(key: key);
+                                   ^
+lib/screens/tramites_screen.dart:234:38: Error: Expected an identifier, but got ':'.
+Try inserting an identifier before ':'.
+    const TramitesScreen({Key? key}) : super(key: key);
+                                     ^
+lib/screens/tramites_screen.dart:234:38: Error: Unexpected token ';'.
+    const TramitesScreen({Key? key}) : super(key: key);
+                                     ^
+lib/screens/tramites_screen.dart:234:40: Error: Superclass has no method named 'call'.
+    const TramitesScreen({Key? key}) : super(key: key);
+                                       ^^^^
+lib/screens/tramites_screen.dart:253:27: Error: Not a constant expression.
+                    const SizedBox(width: 16),
+                          ^^^^^^^^
+lib/screens/tramites_screen.dart:262:33: Error: Not a constant expression.
+                          const SizedBox(height: 4),
+                                ^^^^^^^^
+lib/screens/tramites_screen.dart:322:35: Error: Not a constant expression.
+                            const SizedBox(height: 16),
+                                  ^^^^^^^^
+lib/screens/tramites_screen.dart:324:35: Error: Not a constant expression.
+                            const SizedBox(height: 8),
+                                  ^^^^^^^^
+lib/screens/tramites_screen.dart:330:45: Error: Not a constant expression.
+                                      const SizedBox(width: 8),
+                                            ^^^^^^^^
+lib/screens/tramites_screen.dart:335:35: Error: Not a constant expression.
+                            const SizedBox(height: 16),
+                                  ^^^^^^^^
+lib/screens/tramites_screen.dart:347:39: Error: Not a constant expression.
+                                const SizedBox(width: 8),
+                                      ^^^^^^^^
+lib/screens/tramites_screen.dart:280:43: Error: The getter 'icono' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'icono'.
+                      child: Icon(tramite.icono, color: colorPrimary),
+                                          ^^^^^
+lib/screens/tramites_screen.dart:283:31: Error: The getter 'titulo' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'titulo'.
+                      tramite.titulo,
+                              ^^^^^^
+lib/screens/tramites_screen.dart:286:44: Error: The getter 'descripcion' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'descripcion'.
+                    subtitle: Text(tramite.descripcion),
+                                           ^^^^^^^^^^^
+lib/screens/tramites_screen.dart:300:52: Error: The getter 'duracion' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'duracion'.
+                                      Text(tramite.duracion, style: const TextStyle(fontWeight: FontWeight.w500)),
+                                                   ^^^^^^^^
+lib/screens/tramites_screen.dart:310:49: Error: The getter 'costo' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'costo'.
+                                        tramite.costo,
+                                                ^^^^^
+lib/screens/tramites_screen.dart:325:40: Error: The getter 'requisitos' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'requisitos'.
+                            ...tramite.requisitos.map((requisito) => Padding(
+                                       ^^^^^^^^^^
+lib/screens/tramites_screen.dart:376:21: Error: Too few positional arguments: 1 required, 0 given.
+            SizedBox(width: 80, child: Text(label, style: const TextStyle(fontWeight: FontWeight.w600))),
+                    ^
+lib/screens/tramites_screen.dart:170:16: Error: Final field 'titulo' is not initialized.
+Try to initialize the field in the declaration or in every constructor.
+  final String titulo;
+               ^^^^^^
+lib/screens/tramites_screen.dart:171:16: Error: Final field 'descripcion' is not initialized.
+Try to initialize the field in the declaration or in every constructor.
+  final String descripcion;
+               ^^^^^^^^^^^
+lib/screens/tramites_screen.dart:172:16: Error: Final field 'duracion' is not initialized.
+Try to initialize the field in the declaration or in every constructor.
+  final String duracion;
+               ^^^^^^^^
+lib/screens/tramites_screen.dart:173:16: Error: Final field 'costo' is not initialized.
+Try to initialize the field in the declaration or in every constructor.
+  final String costo;
+               ^^^^^
+lib/screens/tramites_screen.dart:174:22: Error: Final field 'requisitos' is not initialized.
+Try to initialize the field in the declaration or in every constructor.
+  final List<String> requisitos;
+                     ^^^^^^^^^^
+lib/screens/tramites_screen.dart:175:18: Error: Final field 'icono' is not initialized.
+Try to initialize the field in the declaration or in every constructor.
+  final IconData icono;
+                 ^^^^^
+lib/screens/tramites_screen.dart:23:3: Error: Dynamic invocation is not a constant expression.
+  _Tramite(
+  ^
+00:00 +0 -1: loading /Users/Gsrod/Documents/UruAppan/test/widget_test.dart [E]
+  Failed to load "/Users/Gsrod/Documents/UruAppan/test/widget_test.dart":
+  Compilation failed for testPath=/Users/Gsrod/Documents/UruAppan/test/widget_test.dart: lib/screens/tramites_screen.dart:169:16: Error: Can't find '}' to match '{'.
+  class _Tramite {
+                 ^
+  lib/screens/tramites_screen.dart:166:1: Error: Directives must appear before any declarations.
+  Try moving the directive before any declarations.
+  import 'package:flutter/material.dart';
+  ^^^^^^
+  lib/screens/tramites_screen.dart:167:1: Error: Directives must appear before any declarations.
+  Try moving the directive before any declarations.
+  import '../widgets/app_scaffold.dart';
+  ^^^^^^
+  lib/screens/tramites_screen.dart:177:3: Error: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+  Try adding the name of the type of the variable or the keyword 'var'.
+    import 'package:flutter/material.dart';
+    ^^^^^^
+  lib/screens/tramites_screen.dart:177:3: Error: Expected ';' after this.
+    import 'package:flutter/material.dart';
+    ^^^^^^
+  lib/screens/tramites_screen.dart:177:10: Error: Expected a class member, but got ''package:flutter/material.dart''.
+    import 'package:flutter/material.dart';
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:177:41: Error: Expected a class member, but got ';'.
+    import 'package:flutter/material.dart';
+                                          ^
+  lib/screens/tramites_screen.dart:178:3: Error: Variables must be declared using the keywords 'const', 'final', 'var' or a type name.
+  Try adding the name of the type of the variable or the keyword 'var'.
+    import '../widgets/app_scaffold.dart';
+    ^^^^^^
+  lib/screens/tramites_screen.dart:178:3: Error: Expected ';' after this.
+    import '../widgets/app_scaffold.dart';
+    ^^^^^^
+  lib/screens/tramites_screen.dart:178:10: Error: Expected a class member, but got ''../widgets/app_scaffold.dart''.
+    import '../widgets/app_scaffold.dart';
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:178:40: Error: Expected a class member, but got ';'.
+    import '../widgets/app_scaffold.dart';
+                                         ^
+  lib/screens/tramites_screen.dart:180:3: Error: Classes can't be declared inside other classes.
+  Try moving the class to the top-level.
+    class _Tramite {
+    ^^^^^
+  lib/screens/tramites_screen.dart:198:3: Error: Only static fields can be declared as const.
+  Try using 'final' instead of 'const', or adding the keyword 'static'.
+    const List<_Tramite> _kTramites = [
+    ^^^^^
+  lib/screens/tramites_screen.dart:233:3: Error: Classes can't be declared inside other classes.
+  Try moving the class to the top-level.
+    class TramitesScreen extends StatelessWidget {
+    ^^^^^
+  lib/screens/tramites_screen.dart:233:24: Error: Expected a class member, but got 'extends'.
+    class TramitesScreen extends StatelessWidget {
+                         ^^^^^^^
+  lib/screens/tramites_screen.dart:233:32: Error: A method declaration needs an explicit list of parameters.
+  Try adding a parameter list to the method declaration.
+    class TramitesScreen extends StatelessWidget {
+                                 ^^^^^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:383:54: Error: Non-optional parameters can't have a default value.
+  Try removing the default value or making the parameter optional.
+                                  const SizedBox(height: 8),
+                                                       ^
+  lib/screens/tramites_screen.dart:383:58: Error: Expected '{' before this.
+                                  const SizedBox(height: 8),
+                                                           ^
+  lib/screens/tramites_screen.dart:383:33: Error: Getters, setters and methods can't be declared to be 'const'.
+  Try removing the 'const' keyword.
+                                  const SizedBox(height: 8),
+                                  ^^^^^
+  lib/screens/tramites_screen.dart:383:58: Error: Expected a class member, but got ','.
+                                  const SizedBox(height: 8),
+                                                           ^
+  lib/screens/tramites_screen.dart:169:7: Error: '_Tramite' is already declared in this scope.
+  class _Tramite {
+        ^^^^^^^^
+  lib/screens/tramites_screen.dart:4:7: Context: Previous declaration of '_Tramite'.
+  class _Tramite {
+        ^^^^^^^^
+  lib/screens/tramites_screen.dart:178:3: Error: 'import' is already declared in this scope.
+    import '../widgets/app_scaffold.dart';
+    ^^^^^^
+  lib/screens/tramites_screen.dart:177:3: Context: Previous declaration of 'import'.
+    import 'package:flutter/material.dart';
+    ^^^^^^
+  lib/screens/tramites_screen.dart:22:12: Error: '_Tramite' isn't a type.
+  const List<_Tramite> _kTramites = [
+             ^^^^^^^^
+  lib/screens/tramites_screen.dart:22:12: Context: This isn't a type.
+  const List<_Tramite> _kTramites = [
+             ^^^^^^^^
+  lib/screens/tramites_screen.dart:198:14: Error: '_Tramite' isn't a type.
+    const List<_Tramite> _kTramites = [
+               ^^^^^^^^
+  lib/screens/tramites_screen.dart:198:14: Context: This isn't a type.
+    const List<_Tramite> _kTramites = [
+               ^^^^^^^^
+  lib/screens/tramites_screen.dart:98:41: Error: The getter 'icono' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'icono'.
+                      child: Icon(tramite.icono, color: colorPrimary),
+                                          ^^^^^
+  lib/screens/tramites_screen.dart:100:39: Error: The getter 'titulo' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'titulo'.
+                    title: Text(tramite.titulo, style: const TextStyle(fontWeight: FontWeight.bold)),
+                                        ^^^^^^
+  lib/screens/tramites_screen.dart:101:42: Error: The getter 'descripcion' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'descripcion'.
+                    subtitle: Text(tramite.descripcion),
+                                           ^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:115:50: Error: The getter 'duracion' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'duracion'.
+                                      Text(tramite.duracion, style: const TextStyle(fontWeight: FontWeight.w500)),
+                                                   ^^^^^^^^
+  lib/screens/tramites_screen.dart:124:50: Error: The getter 'costo' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'costo'.
+                                      Text(tramite.costo, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green.shade700, fontSize: 16)),
+                                                   ^^^^^
+  lib/screens/tramites_screen.dart:133:38: Error: The getter 'requisitos' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'requisitos'.
+                            ...tramite.requisitos.map((requisito) => Padding(
+                                       ^^^^^^^^^^
+  lib/screens/tramites_screen.dart:234:35: Error: Expected ':' before this.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                    ^
+  lib/screens/tramites_screen.dart:234:32: Error: Not a constant expression.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                 ^^^
+  lib/screens/tramites_screen.dart:234:35: Error: Expected an identifier, but got '}'.
+  Try inserting an identifier before '}'.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                    ^
+  lib/screens/tramites_screen.dart:234:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+  Try removing the extra positional arguments.
+      const TramitesScreen({Key? key}) : super(key: key);
+                          ^
+  lib/screens/tramites_screen.dart:58:9: Context: Found this candidate, but the arguments don't match.
+    const TramitesScreen({Key? key}) : super(key: key);
+          ^^^^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:234:36: Error: Expected ';' after this.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                     ^
+  lib/screens/tramites_screen.dart:234:38: Error: Expected an identifier, but got ':'.
+  Try inserting an identifier before ':'.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                       ^
+  lib/screens/tramites_screen.dart:234:38: Error: Unexpected token ';'.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                       ^
+  lib/screens/tramites_screen.dart:234:40: Error: Superclass has no method named 'call'.
+      const TramitesScreen({Key? key}) : super(key: key);
+                                         ^^^^
+  lib/screens/tramites_screen.dart:253:27: Error: Not a constant expression.
+                      const SizedBox(width: 16),
+                            ^^^^^^^^
+  lib/screens/tramites_screen.dart:262:33: Error: Not a constant expression.
+                            const SizedBox(height: 4),
+                                  ^^^^^^^^
+  lib/screens/tramites_screen.dart:322:35: Error: Not a constant expression.
+                              const SizedBox(height: 16),
+                                    ^^^^^^^^
+  lib/screens/tramites_screen.dart:324:35: Error: Not a constant expression.
+                              const SizedBox(height: 8),
+                                    ^^^^^^^^
+  lib/screens/tramites_screen.dart:330:45: Error: Not a constant expression.
+                                        const SizedBox(width: 8),
+                                              ^^^^^^^^
+  lib/screens/tramites_screen.dart:335:35: Error: Not a constant expression.
+                              const SizedBox(height: 16),
+                                    ^^^^^^^^
+  lib/screens/tramites_screen.dart:347:39: Error: Not a constant expression.
+                                  const SizedBox(width: 8),
+                                        ^^^^^^^^
+  lib/screens/tramites_screen.dart:280:43: Error: The getter 'icono' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'icono'.
+                        child: Icon(tramite.icono, color: colorPrimary),
+                                            ^^^^^
+  lib/screens/tramites_screen.dart:283:31: Error: The getter 'titulo' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'titulo'.
+                        tramite.titulo,
+                                ^^^^^^
+  lib/screens/tramites_screen.dart:286:44: Error: The getter 'descripcion' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'descripcion'.
+                      subtitle: Text(tramite.descripcion),
+                                             ^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:300:52: Error: The getter 'duracion' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'duracion'.
+                                        Text(tramite.duracion, style: const TextStyle(fontWeight: FontWeight.w500)),
+                                                     ^^^^^^^^
+  lib/screens/tramites_screen.dart:310:49: Error: The getter 'costo' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'costo'.
+                                          tramite.costo,
+                                                  ^^^^^
+  lib/screens/tramites_screen.dart:325:40: Error: The getter 'requisitos' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'requisitos'.
+                              ...tramite.requisitos.map((requisito) => Padding(
+                                         ^^^^^^^^^^
+  lib/screens/tramites_screen.dart:376:21: Error: Too few positional arguments: 1 required, 0 given.
+              SizedBox(width: 80, child: Text(label, style: const TextStyle(fontWeight: FontWeight.w600))),
+                      ^
+  lib/screens/tramites_screen.dart:170:16: Error: Final field 'titulo' is not initialized.
+  Try to initialize the field in the declaration or in every constructor.
+    final String titulo;
+                 ^^^^^^
+  lib/screens/tramites_screen.dart:171:16: Error: Final field 'descripcion' is not initialized.
+  Try to initialize the field in the declaration or in every constructor.
+    final String descripcion;
+                 ^^^^^^^^^^^
+  lib/screens/tramites_screen.dart:172:16: Error: Final field 'duracion' is not initialized.
+  Try to initialize the field in the declaration or in every constructor.
+    final String duracion;
+                 ^^^^^^^^
+  lib/screens/tramites_screen.dart:173:16: Error: Final field 'costo' is not initialized.
+  Try to initialize the field in the declaration or in every constructor.
+    final String costo;
+                 ^^^^^
+  lib/screens/tramites_screen.dart:174:22: Error: Final field 'requisitos' is not initialized.
+  Try to initialize the field in the declaration or in every constructor.
+    final List<String> requisitos;
+                       ^^^^^^^^^^
+  lib/screens/tramites_screen.dart:175:18: Error: Final field 'icono' is not initialized.
+  Try to initialize the field in the declaration or in every constructor.
+    final IconData icono;
+                   ^^^^^
+  lib/screens/tramites_screen.dart:23:3: Error: Dynamic invocation is not a constant expression.
+    _Tramite(
+    ^
+  .
+00:00 +0 -1: Some tests failed.

@@ -7,6 +7,7 @@ class Oficio {
   String email;
   String horarios;
   String descripcion;
+  String categoria;
   bool publicado;
 
   Oficio({
@@ -18,7 +19,8 @@ class Oficio {
     this.email = '',
     this.horarios = '',
     this.descripcion = '',
-    this.publicado = false,
+  this.categoria = '',
+  this.publicado = false,
   });
 
   Map<String, dynamic> toMap() {
@@ -30,6 +32,7 @@ class Oficio {
       'email': email,
       'horarios': horarios,
       'descripcion': descripcion,
+  'categoria': categoria,
       'publicado': publicado,
     };
   }
@@ -44,7 +47,8 @@ class Oficio {
       email: map['email'] ?? '',
       horarios: map['horarios'] ?? '',
       descripcion: map['descripcion'] ?? '',
-      publicado: map['publicado'] ?? false,
+  categoria: map['categoria'] ?? '',
+  publicado: map['publicado'] ?? false,
     );
   }
 }

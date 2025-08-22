@@ -209,7 +209,7 @@ class _MedicosScreenState extends State<MedicosScreen> {
                                   servicio,
                                   style: const TextStyle(fontSize: 12),
                                 ),
-                                backgroundColor: _getTipoColor(medico.tipo).withOpacity(0.1),
+                                backgroundColor: _getTipoColor(medico.tipo).withAlpha((0.1 * 255).round()),
                               )).toList(),
                             ),
                             const SizedBox(height: 12),

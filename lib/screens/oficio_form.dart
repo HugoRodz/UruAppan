@@ -3,6 +3,10 @@ import '../models/oficio.dart';
 import '../services/oficio_repository.dart';
 
 class OficioForm extends StatefulWidget {
+  final String? initialCategory;
+
+  const OficioForm({Key? key, this.initialCategory}) : super(key: key);
+
   @override
   _OficioFormState createState() => _OficioFormState();
 }
@@ -19,6 +23,7 @@ class _OficioFormState extends State<OficioForm> {
     'email': '',
     'horarios': '',
     'descripcion': '',
+  'categoria': '',
   };
 
   bool _submitting = false;
@@ -35,7 +40,8 @@ class _OficioFormState extends State<OficioForm> {
       email: _data['email']!,
       horarios: _data['horarios']!,
       descripcion: _data['descripcion']!,
-      publicado: false,
+  categoria: _data['categoria'] ?? '',
+  publicado: false,
     );
 
     try {
@@ -51,6 +57,10 @@ class _OficioFormState extends State<OficioForm> {
 
   @override
   Widget build(BuildContext context) {
+    // initialize category if provided
+    if ((widget.initialCategory ?? '').isNotEmpty && _data['categoria'] == '') {
+      _data['categoria'] = widget.initialCategory!;
+    }
     return Scaffold(
       appBar: AppBar(title: Text('Registrar oficio')),
       body: Padding(
@@ -96,6 +106,12 @@ class _OficioFormState extends State<OficioForm> {
                 maxLines: 4,
                 onSaved: (v) => _data['descripcion'] = v ?? '',
               ),
+              const SizedBox(height: 12),
+              // Category dropdown
+              _CategoryDropdown(
+                initialValue: _data['categoria'],
+                onSaved: (v) => _data['categoria'] = v ?? '',
+              ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitting ? null : _submit,
@@ -107,4 +123,36 @@ class _OficioFormState extends State<OficioForm> {
       ),
     );
   }
+}
+
+class _CategoryDropdown extends FormField<String> {
+  _CategoryDropdown({String? initialValue, FormFieldSetter<String>? onSaved})
+      : super(
+          initialValue: initialValue ?? '',
+          onSaved: onSaved,
+          builder: (state) {
+            final categories = [
+              '',
+              'Construcción y Remodelación',
+              'Servicios Domésticos',
+              'Transporte y Mudanzas',
+              'Tecnología y Soporte',
+              'Salud y Bienestar',
+            ];
+            return InputDecorator(
+              decoration: InputDecoration(labelText: 'Categoría'),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: state.value == '' ? null : state.value,
+                  isExpanded: true,
+                  hint: Text('Selecciona una categoría'),
+                  items: categories
+                      .map((c) => DropdownMenuItem(value: c, child: Text(c == '' ? 'Sin especificar' : c)))
+                      .toList(),
+                  onChanged: (v) => state.didChange(v ?? ''),
+                ),
+              ),
+            );
+          },
+        );
 }

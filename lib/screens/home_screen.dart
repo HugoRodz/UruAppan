@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../routes.dart';
 import '../widgets/app_scaffold.dart';
+import '../services/banner_repository.dart';
+import '../models/banner_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<_Section> sections = const [
@@ -22,6 +25,10 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            _HeroHeader(),
+            const SizedBox(height: 12),
+            _TopBanners(),
+            const SizedBox(height: 12),
             Text(
               'Servicios Municipales',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -64,38 +71,164 @@ class HomeScreen extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.all(20.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Hero(
                 tag: s.route,
                 child: Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.12),
+                    color: Theme.of(context).colorScheme.primary.withAlpha((0.12 * 255).round()),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Icon(s.icon, size: 32, color: Theme.of(context).colorScheme.primary),
                 ),
               ),
               const SizedBox(height: 16),
-              Text(
-                s.title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+              Flexible(
+                child: Text(
+                  s.title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               const SizedBox(height: 8),
-              Text(
-                s.description,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey.shade600),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              Flexible(
+                child: Text(
+                  s.description,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey.shade600),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class _HeroHeader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        gradient: LinearGradient(colors: [Colors.teal.shade600, Colors.teal.shade400], begin: Alignment.topLeft, end: Alignment.bottomRight),
+        boxShadow: [BoxShadow(color: Colors.teal.shade200.withOpacity(0.4), blurRadius: 12, offset: Offset(0, 6))],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Bienvenido a', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70)),
+                const SizedBox(height: 4),
+                Text('UruAPPan', style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.w700)),
+                const SizedBox(height: 8),
+                Text('Servicios municipales al alcance de tu mano', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white70)),
+                const SizedBox(height: 12),
+                Wrap(
+                  spacing: 8,
+                  children: [
+                    ElevatedButton.icon(
+                      icon: const Icon(Icons.search),
+                      label: const Text('Buscar trámites'),
+                      onPressed: () => Navigator.of(context).pushNamed(Routes.tramites),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: Colors.teal.shade700),
+                    ),
+                    OutlinedButton(
+                      onPressed: () => Navigator.of(context).pushNamed(Routes.banners),
+                      child: const Text('Ver anuncios'),
+                      style: OutlinedButton.styleFrom(foregroundColor: Colors.white, side: BorderSide(color: Colors.white24)),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 12),
+          Container(
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              color: Colors.white24,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(Icons.location_city, size: 64, color: Colors.white70),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TopBanners extends StatelessWidget {
+  final _repo = BannerRepository();
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraints) {
+      final height = constraints.maxWidth > 800 ? 220.0 : 140.0;
+      return SizedBox(
+        height: height,
+        child: StreamBuilder<List<BannerModel>>(
+          stream: _repo.streamAllWithFallback(),
+          builder: (context, snap) {
+            final items = snap.data ?? [];
+            if (items.isEmpty) return Center(child: Text('No hay anuncios'));
+            return ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              scrollDirection: Axis.horizontal,
+              itemCount: items.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 12),
+              itemBuilder: (context, i) {
+                final b = items[i];
+                return InkWell(
+                  onTap: () async {
+                    if (b.targetUrl.isNotEmpty) {
+                      final uri = Uri.tryParse(b.targetUrl);
+                      if (uri != null) await launchUrl(uri);
+                    }
+                  },
+                  child: Container(
+                    width: constraints.maxWidth > 800 ? 420 : 320,
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.grey.shade100),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: b.imageUrl.isNotEmpty
+                          ? Image.network(b.imageUrl, fit: BoxFit.cover, width: double.infinity, height: height)
+                          : Container(
+                              color: Colors.white,
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(b.title, style: Theme.of(context).textTheme.titleMedium),
+                                  const SizedBox(height: 6),
+                                  Text(b.premium ? 'Patrocinado • ${b.planName}' : 'Anuncio', style: Theme.of(context).textTheme.bodySmall),
+                                ],
+                              ),
+                            ),
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      );
+    });
   }
 }
 

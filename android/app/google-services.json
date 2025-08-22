@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "80997830920",
+    "project_id": "uruaappan",
+    "storage_bucket": "uruaappan.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80997830920:android:2977c16e8a544cbd3d9cbd",
+        "android_client_info": {
+          "package_name": "com.example.uruappan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmXodJIYu164_SCBijbGqY4Sl3KGkbzoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
