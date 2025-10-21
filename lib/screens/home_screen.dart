@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '../routes.dart';
+import 'package:provider/provider.dart';
+import '../services/auth_service.dart';
+import '../services/profile_service.dart';
 import '../widgets/app_scaffold.dart';
 import '../services/banner_repository.dart';
 import '../models/banner_model.dart';
@@ -18,6 +21,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthService>(context, listen: false);
+    final profile = Provider.of<ProfileService>(context).selectedProfile;
+    final isGuest = auth.currentUser == null && (profile == null || profile == 'Ciudadano');
     return AppScaffold(
       title: 'UruAPPan',
       child: SingleChildScrollView(
@@ -26,6 +32,10 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _HeroHeader(),
+            if (isGuest) ...[
+              const SizedBox(height: 12),
+              _GuestLoginCard(),
+            ],
             const SizedBox(height: 12),
             _TopBanners(),
             const SizedBox(height: 12),
@@ -107,6 +117,40 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _GuestLoginCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      color: Colors.teal.shade50,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12), side: BorderSide(color: Colors.teal.shade100)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            CircleAvatar(backgroundColor: Colors.teal.shade100, child: const Icon(Icons.person_outline, color: Colors.teal)),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('Estás navegando como invitado', style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.teal.shade800, fontWeight: FontWeight.w600)),
+                const SizedBox(height: 4),
+                Text('Inicia sesión para acceder a funciones personalizadas y registrar tus servicios.', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.teal.shade800)),
+              ]),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton.icon(
+              onPressed: () => Navigator.of(context).pushNamed(Routes.login),
+              icon: const Icon(Icons.login),
+              label: const Text('Iniciar sesión'),
+              style: OutlinedButton.styleFrom(foregroundColor: Colors.teal.shade700, side: BorderSide(color: Colors.teal.shade300)),
+            )
+          ],
         ),
       ),
     );

@@ -45,11 +45,26 @@ class _OficioFormState extends State<OficioForm> {
     );
 
     try {
-      await _repo.add(oficio);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registro enviado. Pendiente de validación por admin')));
-      Navigator.of(context).pop();
+      final id = await _repo.add(oficio);
+      // verify the document exists (small retry loop)
+      Oficio? saved;
+      const int maxRetries = 5;
+      int attempts = 0;
+      while (attempts < maxRetries && saved == null) {
+        await Future.delayed(Duration(milliseconds: 300));
+        saved = await _repo.getById(id);
+        attempts++;
+      }
+
+      if (saved != null) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registro enviado correctamente (id: $id)')));
+        Navigator.of(context).pop();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registro enviado, pero no se encontró en la base de datos (intentar más tarde)')));
+        Navigator.of(context).pop();
+      }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error al guardar: $e')));
     } finally {
       setState(() => _submitting = false);
     }

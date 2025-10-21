@@ -13,6 +13,12 @@ class OficioRepository {
     return doc.id;
   }
 
+  Future<Oficio?> getById(String id) async {
+    final d = await _col.doc(id).get();
+    if (!d.exists) return null;
+    return Oficio.fromMap(d.id, d.data() as Map<String, dynamic>);
+  }
+
   Future<void> updatePublication(String id, bool publicado) async {
     await _col.doc(id).update({'publicado': publicado});
   }

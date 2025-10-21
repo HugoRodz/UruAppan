@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../routes.dart';
+import '../services/auth_service.dart';
+import '../services/profile_service.dart';
 
 class AppScaffold extends StatelessWidget {
   final Widget child;
@@ -21,6 +24,20 @@ class AppScaffold extends StatelessWidget {
             Text(title),
           ],
         ),
+        actions: [
+          Builder(builder: (context) {
+            final auth = Provider.of<AuthService>(context, listen: false);
+            final profile = Provider.of<ProfileService>(context, listen: false).selectedProfile;
+            final isGuest = auth.currentUser == null && (profile == null || profile == 'Ciudadano');
+            if (!isGuest) return const SizedBox.shrink();
+            return TextButton.icon(
+              onPressed: () => Navigator.of(context).pushNamed(Routes.login),
+              icon: const Icon(Icons.login, color: Colors.white),
+              label: const Text('Iniciar sesión', style: TextStyle(color: Colors.white)),
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
+            );
+          }),
+        ],
       ),
       drawer: Drawer(
         child: SafeArea(

@@ -17,3 +17,6 @@ Notas:
 	- Android: `android/app/google-services.json`
 	- iOS: `ios/Runner/GoogleService-Info.plist`
 
+cd /Users/Gsrod/Documents/UruAppan
+pwd
+ls -lagrep -n "dependency_overrides" pubspec.yaml || echo "No hay dependency_overrides actualmente"
