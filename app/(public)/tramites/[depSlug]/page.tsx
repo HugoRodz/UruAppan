@@ -12,15 +12,19 @@ export default async function Page({ params }: { params: Promise<{ depSlug: stri
       <h2 className="text-xl font-bold mb-2">{dep.nombre}</h2>
       <p className="mb-4">{dep.descripcion}</p>
       <h3 className="font-semibold mb-2">Trámites</h3>
-      <ul className="space-y-2">
-        {tramites.map((t: any) => (
-          <li key={t.id}>
-            <a href={`/tramites/${dep.slug}/${t.slug}`} className="underline">
-              {t.titulo}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {tramites.length === 0 ? (
+        <div className="text-gray-500">No hay trámites publicados para esta dependencia.</div>
+      ) : (
+        <ul className="space-y-2">
+          {tramites.map((t: any) => (
+            <li key={t.id}>
+              <a href={`/tramites/${dep.slug}/${t.slug}`} className="underline">
+                {t.titulo}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
